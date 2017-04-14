@@ -14,13 +14,17 @@ class App extends React.Component {
   }
 
   handleCreateNote(inputText) {
-    this.props.onCreateNote(this.props.lanes[0].id, inputText);
+    let lane = this.props.lanes.filter(lane => lane.name === "Todo");
+    if (lane.length > 0)
+        this.props.onCreateNote(lane[0].id, inputText);
+    else 
+        alert("Fail to add new project since there is no Todo Lane");
   }
 
   render() {
-      let input;
-      var sum = 0; 
-      this.props.lanes.forEach(lane => sum += lane.notes.length);
+    let input;
+    var sum = 0; 
+    this.props.lanes.forEach(lane => sum += lane.notes.length);
     return (
       <div className="react-kanban">
         <h1 className="app-title">React.js Kanban</h1>
@@ -38,8 +42,8 @@ class App extends React.Component {
             this.handleCreateNote(input.value.trim());
             input.value = ''
         }}>
-        <button type="submit">
-        Add Project
+        <button className="add-note" type="submit">
+        +Project
         </button>
         <input ref={node => {
             input = node
@@ -49,7 +53,7 @@ class App extends React.Component {
           className="reset-store"
           onClick={this.props.onReset}
         >
-          Reset persisted store
+          Clear board 
         </button>
             <h3 className="totalProject">
             Total {sum} Projects

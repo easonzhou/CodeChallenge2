@@ -4,7 +4,7 @@
 
 # Kanban Board built with React.js & Redux
 
-![Screenshot](https://raw.githubusercontent.com/jiayihu/react-kanban/master/screenshot.png)
+![Screenshot](./screenshot.png)
 
 ## Steps to compile/run the app
 
