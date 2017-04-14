@@ -21,16 +21,17 @@ describe('lanes actions', function description() {
   });
 
   it('should return an action to attach a note to a lane', () => {
+    const time = Date.now();
     const validId = uuid.v4();
     const expectedAction = {
       type: actionTypes.ATTACH_TO_LANE,
       payload: {
         laneId: validId,
-        noteId: validId,
+        noteId: validId + '-' + time,
       },
     };
 
-    expect(actions.attachToLane(validId, validId)).to.deep.equal(expectedAction);
+    expect(actions.attachToLane(validId, validId + "-" + time)).to.deep.equal(expectedAction);
   });
 
   it('should return an action to update a lane', () => {
@@ -63,29 +64,31 @@ describe('lanes actions', function description() {
   });
 
   it('should return an action to detach a note from a lane', () => {
+    const time = Date.now();
     const validId = uuid.v4();
     const expectedAction = {
       type: actionTypes.DETACH_FROM_LANE,
       payload: {
         laneId: validId,
-        noteId: validId,
+        noteId: validId + "-" + time,
       },
     };
 
-    expect(actions.detachFromLane(validId, validId)).to.deep.equal(expectedAction);
+    expect(actions.detachFromLane(validId, validId + "-" + time)).to.deep.equal(expectedAction);
   });
 
   it('should return an action to move a note in the lane', () => {
+    const time = Date.now();
     const validId = uuid.v4();
     const expectedAction = {
       type: actionTypes.MOVE_NOTE,
       payload: {
-        sourceId: validId,
-        targetId: validId,
+        sourceId: validId + "-" + time,
+        targetId: validId + "-" + time,
       },
     };
 
-    expect(actions.move('note', validId, validId)).to.deep.equal(expectedAction);
+    expect(actions.move('note', validId + "-" + time, validId + "-" + time)).to.deep.equal(expectedAction);
   });
 
   it('should throw an error', () => {

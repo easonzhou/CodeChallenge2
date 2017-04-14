@@ -19,13 +19,14 @@ describe('notes actions', () => {
   });
 
   it('should check if id is v4 valid and create an update action', () => {
+    const time = Date.now();
     const invalidId = {
       id: 'Hello',
     };
     const invalidNote = 'not an object';
     const validId = uuid.v4();
     const validNote = {
-      id: validId,
+      id: validId + "-" + time,
       text: 'Hello',
     };
     const expectedAction = {
@@ -39,16 +40,17 @@ describe('notes actions', () => {
   });
 
   it('should check if id is v4 valid and create a delete action', () => {
+    const time = Date.now();
     const invalidId = 'Hello';
     const validId = uuid.v4();
     const expectedAction = {
       type: actionTypes.DELETE_NOTE,
       payload: {
-        id: validId,
+        id: validId + "-" + time,
       },
     };
 
     expect(actions.deleteNote.bind(null, invalidId)).to.throw(Error);
-    expect(actions.deleteNote(validId)).to.deep.equal(expectedAction);
+    expect(actions.deleteNote(validId + "-" + time)).to.deep.equal(expectedAction);
   });
 });
