@@ -1,6 +1,5 @@
-![David](https://david-dm.org/jiayihu/react-kanban.svg)
 ![Love](https://img.shields.io/badge/Made%20with-%E2%99%A5-red.svg)
-[![Build Status](https://travis-ci.org/jiayihu/react-kanban.svg?branch=master)](https://travis-ci.org/jiayihu/react-kanban)
+[![Build Status](https://travis-ci.org/easonzhou/CodeChallenge2.svg?branch=master)](https://travis-ci.org/easonzhou/CodeChallenge2/)
 
 # Kanban Board built with React.js & Redux
 
@@ -15,6 +14,10 @@ Firstly, build the application
 Secondly, start the application
 	
 	$ npm run start
+	
+To run the test cases
+
+	$ npm run test
 
 ## Required Features
 
@@ -27,15 +30,13 @@ Secondly, start the application
 5. The total at the top of each column reflects the number of projects.
 6. The global total reflects the the global sum of projects.
 
-## Additional Features:
+## Additional Features
 
 1. Add new Lane.
 2. Add new project in each lane.
-3. Close or drag each lane.
-4. Change project text in the lane.
+3. Close / drag and drop lanes and re-arrange the order of all the lanes.
+4. Change project or lane text in the lane.
 5. Reset persisted store to clear the kanban board.
 
 ## TODO
- - [x] Draggable Lanes
- - [x] Refactor in ES6
- - [ ] Add authentication
+ - Add authentication

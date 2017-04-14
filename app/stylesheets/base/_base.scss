@@ -22,7 +22,7 @@ a {
 }
 
 p {
-  font-size: 1em;
+  font-size: 12px;
   font-weight: 300;
 }
 
@@ -71,6 +71,7 @@ input {
     margin-left: 5em;
     border: 3px solid #00BCD4;
     padding: 2px;
+    box-shadow: 2px 2px 2px #888888;
 }
 
 form {
@@ -80,4 +81,5 @@ form {
 form input {
     border: 1px solid black;
     margin-left: 1em;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 3px;
 }

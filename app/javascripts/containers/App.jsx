@@ -43,7 +43,7 @@ class App extends React.Component {
             input.value = ''
         }}>
         <button className="add-note" type="submit">
-        +Project
+        + Project
         </button>
         <input ref={node => {
             input = node
