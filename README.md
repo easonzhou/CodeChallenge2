@@ -37,6 +37,4 @@ To run the test cases
 3. Change project or lane text in the lane.
 4. Close / drag and drop lanes and re-arrange the order of all the lanes.
 5. Reset persisted store to clear the kanban board.
-
-## TODO
- - Add authentication
+6. Add travis CI into the project to build and test the app.
