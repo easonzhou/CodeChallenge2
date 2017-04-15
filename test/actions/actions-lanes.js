@@ -62,6 +62,18 @@ describe('lanes actions', function description() {
 
     expect(actions.deleteLane(validId)).to.deep.equal(expectedAction);
   });
+    
+  it('should create an action to sort the lane', () => {
+    const validId = uuid.v4();
+    const expectedAction = {
+      type: actionTypes.SORT_LANE,
+      payload: {
+        id: validId,
+      },
+    };
+
+    expect(actions.sortLane(validId)).to.deep.equal(expectedAction);
+  });
 
   it('should return an action to detach a note from a lane', () => {
     const time = Date.now();

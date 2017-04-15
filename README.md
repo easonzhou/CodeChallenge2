@@ -34,8 +34,8 @@ To run the test cases
 
 1. Add new Lane.
 2. Add new project in each lane.
-3. Close / drag and drop lanes and re-arrange the order of all the lanes.
-4. Change project or lane text in the lane.
+3. Change project or lane text in the lane.
+4. Close / drag and drop lanes and re-arrange the order of all the lanes.
 5. Reset persisted store to clear the kanban board.
 
 ## TODO
