@@ -14,6 +14,9 @@ function isV4PlusTime(id) {
   return /^[a-z0-9]{8}-[a-z0-9]{4}-4[a-z0-9]{3}-[a-z0-9]{4}-[a-z0-9]{12}-[0-9]{13}$/.test(id);
 }
 
+function createNoteId() {
+    return uuid.v4() + "-" + Date.now();
+}
 /**
  * Returns the action to create a note
  * @param  {String} text Note text
@@ -27,7 +30,7 @@ function createNote(text) {
   return {
     type: actionTypes.CREATE_NOTE,
     payload: {
-      id: uuid.v4() + "-" + Date.now(),
+      id: createNoteId(),
       editing: false,
       text,
     },
@@ -73,4 +76,6 @@ export default {
   createNote,
   updateNote,
   deleteNote,
+  createNoteId,
+  isV4PlusTime,
 };

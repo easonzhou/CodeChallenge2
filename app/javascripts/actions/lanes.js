@@ -1,5 +1,6 @@
 import uuid from 'uuid';
 import * as actionTypes from '../constants/actionTypes';
+import noteActions from './notes'
 
 /**
  * Checks if string is valid v4 id
@@ -14,18 +15,6 @@ function isV4(id) {
   return /^[a-z0-9]{8}-[a-z0-9]{4}-4[a-z0-9]{3}-[a-z0-9]{4}-[a-z0-9]{12}$/.test(id);
 }
 
-/**
- * Checks if String is valid v4 id Plus TimeStamp for Note
- * @param  {String} id Id to be checked
- * @return {Boolean}
- */
-function isV4PlusTime(id) {
-  if(typeof id !== 'string') {
-    return false;
-  }
-
-  return /^[a-z0-9]{8}-[a-z0-9]{4}-4[a-z0-9]{3}-[a-z0-9]{4}-[a-z0-9]{12}-[0-9]{13}$/.test(id);
-}
 
 /**
  * Returns a createLane action
@@ -111,7 +100,7 @@ function deleteLane(id) {
  * @return {Object}
  */
 function attachToLane(laneId, noteId) {
-  if((!isV4(laneId)) || (!isV4PlusTime(noteId))) {
+  if((!isV4(laneId)) || (!noteActions.isV4PlusTime(noteId))) {
     throw new Error(`params ${laneId} ${noteId}`);
   }
 
@@ -131,7 +120,7 @@ function attachToLane(laneId, noteId) {
  * @return {Object}
  */
 function detachFromLane(laneId, noteId) {
-  if((!isV4(laneId)) || (!isV4PlusTime(noteId))) {
+  if((!isV4(laneId)) || (!noteActions.isV4PlusTime(noteId))) {
     throw new Error(`params ${laneId} ${noteId}`);
   }
 
@@ -152,7 +141,7 @@ function detachFromLane(laneId, noteId) {
  * @return {Object}
  */
 function move(target, sourceId, targetId) {
-  if((typeof target !== 'string') || ((target === 'note') && (!isV4PlusTime(sourceId) || !isV4PlusTime(targetId))) || ((target === 'lane') && (!isV4(sourceId) || !isV4(targetId)))) {
+  if((typeof target !== 'string') || ((target === 'note') && (!noteActions.isV4PlusTime(sourceId) || !noteActions.isV4PlusTime(targetId))) || ((target === 'lane') && (!isV4(sourceId) || !isV4(targetId)))) {
     throw new Error(`params ${target} ${sourceId} ${targetId}`);
   }
 
