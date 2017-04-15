@@ -22,7 +22,8 @@ describe('notes reducer', () => {
   });
 
   it('should handle UPDATE_NOTE', () => {
-    const v4Id = uuid.v4();
+    const time = Date.now();
+    const v4Id = uuid.v4() + "-" + time;
     const oldState = [{
       id: v4Id,
       text: 'Old task',
@@ -39,7 +40,8 @@ describe('notes reducer', () => {
   });
 
   it('should handle DELETE_NOTE', () => {
-    const v4Id = uuid.v4();
+    const time = Date.now();
+    const v4Id = uuid.v4() + "-" + time;
     const oldState = [{
       id: v4Id,
       text: 'Old task',
