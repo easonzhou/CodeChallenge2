@@ -83,10 +83,6 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(lanesActions.move('note', sourceId, targetId));
   },
 
-  onSortLane(laneId) {
-    dispatch(lanesActions.sortLane(laneId));
-  },
-
   attachToLane(laneId, noteId) {
     dispatch(lanesActions.attachToLane(laneId, noteId));
   },

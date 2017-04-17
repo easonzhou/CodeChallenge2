@@ -15,10 +15,11 @@ class App extends React.Component {
 
   handleCreateNote(inputText) {
     let lane = this.props.lanes.filter(lane => lane.name === "Todo");
-    if (lane.length > 0)
+    if (lane.length > 0) {
         this.props.onCreateNote(lane[0].id, inputText);
-    else 
+    } else {
         alert("Fail to add new project since there is no Todo Lane");
+    }
   }
 
   render() {
@@ -42,12 +43,12 @@ class App extends React.Component {
             this.handleCreateNote(input.value.trim());
             input.value = ''
         }}>
-        <button className="add-note" type="submit">
-        + Project
-        </button>
-        <input ref={node => {
-            input = node
-        }} />
+            <button className="add-note" type="submit">
+            + Project
+            </button>
+            <input ref={node => {
+                input = node
+            }} />
         </form>
         <button
           className="reset-store"
@@ -55,9 +56,9 @@ class App extends React.Component {
         >
           Clear board 
         </button>
-            <h3 className="totalProject">
-            Total {sum} Projects
-            </h3>
+        <h3 className="totalProject">
+        Total {sum} Projects
+        </h3>
         <Lanes
           lanes={this.props.lanes}
           onEditLane={this.props.onEditLane}

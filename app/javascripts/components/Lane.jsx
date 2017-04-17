@@ -93,6 +93,7 @@ Lane.propTypes = {
   onCreateNote: PropTypes.func.isRequired,
   onDeleteLane: PropTypes.func.isRequired,
   onDeleteNote: PropTypes.func.isRequired,
+  onSortLane: PropTypes.func.isRequired,
   onEditLane: PropTypes.func.isRequired,
   onEditNote: PropTypes.func.isRequired,
   onMoveNote: PropTypes.func.isRequired,
