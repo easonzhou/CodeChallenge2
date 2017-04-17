@@ -17,6 +17,12 @@ function isV4PlusTime(id) {
 function createNoteId() {
     return uuid.v4() + "-" + Date.now();
 }
+
+function sortNoteId(a, b) {
+    let t1 = parseInt(a.split('-')[5]);
+    let t2 = parseInt(b.split('-')[5]);
+    return t1 - t2; 
+}
 /**
  * Returns the action to create a note
  * @param  {String} text Note text
@@ -78,4 +84,5 @@ export default {
   deleteNote,
   createNoteId,
   isV4PlusTime,
+  sortNoteId,
 };

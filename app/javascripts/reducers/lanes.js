@@ -1,6 +1,7 @@
 import * as actionTypes from '../constants/actionTypes';
 import uuid from 'uuid';
 import update from 'react-addons-update';
+import notesAction from '../actions/notes';
 
 const defaultState = [
   {
@@ -43,11 +44,7 @@ export default function lanes(state = defaultState, action) {
               if(lane.id === laneId) {
                   console.log(lane.notes)
                   return Object.assign({}, lane, {
-                      notes: lane.notes.sort(function (a, b){
-                        let t1 = parseInt(a.split('-')[5]);
-                        let t2 = parseInt(b.split('-')[5]);
-                        return t1 - t2; 
-                      }),
+                      notes: lane.notes.sort(notesAction.sortNoteId),
                   });
               }
 
