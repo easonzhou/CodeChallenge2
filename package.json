@@ -11,7 +11,9 @@
     "clean": "rm -rf ./public && mkdir ./public ",
     "deploy": "gh-pages -d ./public",
     "start": "gulp",
-    "test": "mocha --recursive --compilers js:babel-register"
+    "test": "mocha --recursive --compilers js:babel-register",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "author": "jiayi hu",
   "license": "MIT",
@@ -61,6 +63,8 @@
     "react-dom": "^15.0.1",
     "react-redux": "^4.4.0",
     "redux": "^3.5.2",
-    "uuid": "^2.0.1"
-  }
+    "uuid": "^2.0.1",
+    "snyk": "^1.316.1"
+  },
+  "snyk": true
 }
